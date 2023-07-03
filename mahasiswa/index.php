@@ -23,9 +23,11 @@ include '../template/head.php'
           <p></p>
           <a href="input_Mahasiswa.php"><button type="submit" class="btn btn-primary">Tambah Mahasiswa</button></a>      
         </div>       
-<?php 
-	$mysqli = new db();	
-?>
+        <?php 
+        include '../db.php';
+        $database = new db();
+        ?>
+
 
 <table class="table table-hover">
  <thead>
@@ -40,7 +42,8 @@ include '../template/head.php'
 </thead>
 <tbody>
         <?php $no=1; ?>
-            <?php foreach ($mysqli->get_show() as $show) { ?>
+            <?php foreach ($database->get_show() as $show) { 
+                ?>
                 <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo $show['nim'] ?></td>
@@ -51,7 +54,9 @@ include '../template/head.php'
                         <a href="" class="btn btn-danger" onclick="return confirm(' Yakin Ingin Hapus?');"> DELETE </a>
                     </td>
                 </tr>
-            <?php } ?>
+            <?php
+         }
+          ?>
     </tbody>
 </table>  
       </div>                 

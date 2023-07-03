@@ -10,17 +10,12 @@ class db{
         return $data;
     }   
     public function get_show (){
-        $mahasiswa = "SELECT * FROM tbl_mahasiswa ORDER BY nim DESC";
-        $hasil = $this->mysqli->query($mahasiswa);
-    
-        while ($d = mysqli_fetch_array($hasil)){
+        $mahasiswa = "SELECT * FROM tbl_mahasiswa";                       
+        while ($d = mysqli_fetch_array($mahasiswa)){
             $result[] = $d;
-        }
-    
-        return $result;
+        }           
+        return $result;                    
     }
 }
-
-
 
 ?>
